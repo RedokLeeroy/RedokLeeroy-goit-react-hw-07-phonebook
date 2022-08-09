@@ -4,7 +4,8 @@ import { Section } from './Section/Section';
 import { Contacts } from './Contacts/Contacts';
 import { FindByName } from './FindByName/FindByName';
 import { addItemSelector, filterItemSelector } from 'redux/items-selector';
-import { deleteAction, filterAction } from 'redux/ItemsActions';
+import { filterAction } from 'redux/ItemsActions';
+import { deleteUser } from 'redux/ItemsOperations';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ export const App = () => {
   };
 
   const handleDelete = id => {
-    dispatch(deleteAction(id));
+    dispatch(deleteUser(id));
   };
 
   return (

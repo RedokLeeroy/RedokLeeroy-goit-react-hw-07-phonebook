@@ -3,8 +3,8 @@ import { FormSubmit } from './FormSubmit';
 import { NameInput } from './NameInput';
 import { PhoneInput } from './PhoneInput';
 import { useDispatch, useSelector } from 'react-redux';
-import { addAction } from 'redux/ItemsActions';
 import { addItemSelector } from 'redux/items-selector';
+import { addUsers } from 'redux/ItemsOperations';
 
 //---------------------------------------------------------------------------------//
 
@@ -22,7 +22,8 @@ export const PhonebookForm = () => {
       alert(`Name already in contacts`);
       return;
     } else {
-      dispatch(addAction(nameEl, phone));
+      const contact = { name: nameEl, phone };
+      dispatch(addUsers(contact));
       setNameEl('');
       setPhone('');
     }
