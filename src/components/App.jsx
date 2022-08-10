@@ -5,13 +5,17 @@ import { Contacts } from './Contacts/Contacts';
 import { FindByName } from './FindByName/FindByName';
 import { addItemSelector, filterItemSelector } from 'redux/items-selector';
 import { filterAction } from 'redux/ItemsActions';
-import { deleteUser } from 'redux/ItemsOperations';
+import { deleteUser, fetchUsers } from 'redux/ItemsOperations';
+import { useEffect } from 'react';
 
 export const App = () => {
   const dispatch = useDispatch();
   const contacts = useSelector(addItemSelector);
   const filteritem = useSelector(filterItemSelector);
 
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
   const handleChange = event => {
     const { value } = event.target;
     dispatch(filterAction(value));

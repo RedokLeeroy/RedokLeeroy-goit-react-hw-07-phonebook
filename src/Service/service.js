@@ -12,6 +12,3 @@ export const createContact = contact => {
 export const deleteContact = id => {
   return axios.delete(`contacts/${id}`);
 };
-
-
-//sdfjkh
